@@ -27,11 +27,11 @@ const AuthUser = () => {
     return cookieValue;
   };
 
-  const verifyUserFromDatabase = async (userId) => {
+  const verifyUserFromDatabase = async (test) => {
     // Make an API call to the backend to check if the user_id is valid
     // Return true if the user is valid, false otherwise
     const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/user_valid?_id=${userId}`
+      `${process.env.REACT_APP_API_URL}/user_valid?_id=${test}`
     );
     const data = await response.json();
     return data.isValid;
