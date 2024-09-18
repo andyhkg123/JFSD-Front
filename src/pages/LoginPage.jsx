@@ -29,7 +29,6 @@ function LoginPage() {
       .then((data) => {
         // Handle the response from the backend
         console.log(data);
-  });
 
         if (data.message === "Logged in") {
           console.log("Logged in");
