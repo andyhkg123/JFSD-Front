@@ -41,7 +41,7 @@ function Header() {
 
   function deleteCookie() {
     Cookies.remove("user_id", {
-      domain: ".parties-final-pj-eight.vercel.app",
+      domain: ".jfsd-front.vercel.app",
       secure: true, // Make sure this matches how the cookie was originally set
       sameSite: "none",
     });
