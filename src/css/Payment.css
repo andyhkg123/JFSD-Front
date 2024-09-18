@@ -1,0 +1,28 @@
+div.payment {
+  display: flex;
+  justify-content: center;
+}
+
+form#payment-form {
+  padding: 20px 20px 20px 20px;
+  border-radius: 10px;
+  border: 2px solid rgb(231, 231, 231);
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+}
+
+button#submit {
+  position: relative;
+  left: 35%;
+  margin: 20px 10px 10px 10px;
+  min-width: 30%;
+  height: 40px;
+  border-radius: 10px;
+  background: orange;
+  color: white;
+}
+
+span#button-text {
+  font-weight: 600;
+}
