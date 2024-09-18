@@ -22,6 +22,8 @@ const AuthUser = () => {
     checkUserLogin();
   }, []);
 
+  console.log(document.cookie);
+
   const getUserIdFromCookie = () => {
     const cookieValue = document.cookie.replace(
       /(?:(?:^|.*;\s*)user_id\s*\=\s*([^;]*).*$)|^.*$/,
