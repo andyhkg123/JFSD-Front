@@ -44,7 +44,7 @@ function SignupPage() {
     };
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}signup`, userData)
+      .post(`${process.env.REACT_APP_API_URL}/signup`, userData)
       .then((response) => {
         if (response && response.status === 201) {
           alert("Registration successful! Please proceed to log in.");
