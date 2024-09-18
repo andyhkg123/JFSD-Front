@@ -20,21 +20,31 @@ const AuthUser = () => {
   }, []);
 
   const getUserIdFromCookie = () => {
-    const cookieValue = document.cookie.replace(
-      /(?:(?:^|.*;\s*)user_id\s*\=\s*([^;]*).*$)|^.*$/,
-      "$1"
-    );
+    const cookieValue = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("user_id="))
+      ?.split("=")[1];
+
+    console.log("userId from cookie:", cookieValue); // Debugging
+
     return cookieValue;
   };
 
   const verifyUserFromDatabase = async (userId) => {
-    // Make an API call to the backend to check if the user_id is valid
-    // Return true if the user is valid, false otherwise
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/user_valid?_id=${userId}`
-    );
-    const data = await response.json();
-    return data.isValid;
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/user_valid?_id=${userId}`
+      );
+      if (!response.ok) {
+        console.error("Failed to verify user");
+        return false;
+      }
+      const data = await response.json();
+      return data.isValid || false;
+    } catch (error) {
+      console.error("Error verifying user:", error);
+      return false;
+    }
   };
 
   return isUserLoggedIn;
