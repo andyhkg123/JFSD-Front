@@ -29,12 +29,7 @@ function LoginPage() {
       .then((data) => {
         // Handle the response from the backend
         console.log(data);
-        Cookies.set("user_id", data.user_id, {
-          domain: "jfsd-front.vercel.app",
-          secure: true, // Use 'true' in production
-          sameSite: "none",
-          expires: 1 / 24, // 1 hour
-        });
+  });
 
         if (data.message === "Logged in") {
           console.log("Logged in");
